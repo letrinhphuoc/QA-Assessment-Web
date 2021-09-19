@@ -7,11 +7,14 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import web.drivermanager.Constants;
 import web.drivermanager.DriverManager;
 import web.exceptions.TakeScreenshotException;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Singleton
 public class DriverHooks {
@@ -28,7 +31,9 @@ public class DriverHooks {
 
     public void takeScreenshotWeb(String image) {
         File srcFile = ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.FILE);
-        File destFile = new File(image);
+        SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd-HHmmss.SSS");
+        String now = format.format(new Date(System.currentTimeMillis()));
+        File destFile = new File(Constants.SCREENSHOT_PATH + "/" + image + now + ".png");
         try {
             FileUtils.copyFile(srcFile, destFile);
         } catch (IOException e) {

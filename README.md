@@ -49,7 +49,9 @@
   - run all regression tests
   > mvn clean verify
   - run test using **specified browser**: 
-  > mvn -DWeb.browser="safari" verify (default is Chrome) 
+  > mvn clean test -Dweb.browser=safari verify (default is Chrome) 
+  > Enable Allow automation in Safari first.
+  > https://www.ibm.com/docs/en/rft/9.2.1?topic=cwut-enabling-apple-safari-web-ui-recording-macintosh-computer
 - - **Run by Test runner in IDE**
   
 ## III. Report Example
