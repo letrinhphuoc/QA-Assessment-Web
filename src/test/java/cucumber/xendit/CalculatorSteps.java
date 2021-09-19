@@ -13,7 +13,6 @@ import org.testng.Assert;
 
 import java.util.List;
 
-@Singleton
 public class CalculatorSteps {
 
     @Inject
@@ -33,7 +32,6 @@ public class CalculatorSteps {
 
     @Given("Open chrome browser and start application")
     public void openChromeBrowserAndStartApplication() throws InterruptedException {
-//        driver.initWeb();
         calculatorPageObject.openPage("https://www.online-calculator.com/full-screen-calculator/");
     }
 
@@ -48,16 +46,16 @@ public class CalculatorSteps {
         calculatorHomePage.actionSendKeys(operator);
         calculatorHomePage.actionSendKeys(value2);
         calculatorHomePage.actionSendKeys("=");
-        calculatorVariable.setActualResultsGetByTesseract(calculatorHomePage.getActualResult());
+//        calculatorVariable.setActualResultsGetByTesseract(calculatorHomePage.getActualResult()); {Tesseract unstable}
         calculatorVariable.setActualResultsGetByJs(calculatorHomePage.getTextByJs("return exportRoot.showscreen_txt.text;"));
         calculatorHomePage.actionSendKeys("C");
     }
 
     @Then("I should be able to see (.*)$")
     public void iShouldBeAbleToSeeExpected(String expected) {
-        String valueFromTesseract = calculatorVariable.getActualResultsGetByTesseract();
+//        String valueFromTesseract = calculatorVariable.getActualResultsGetByTesseract();
         String valueFromJs = calculatorVariable.getActualResultsGetByJs();
-        Assert.assertEquals(valueFromTesseract, expected);
+//        Assert.assertEquals(valueFromTesseract, expected);
         Assert.assertEquals(valueFromJs, expected);
     }
 }

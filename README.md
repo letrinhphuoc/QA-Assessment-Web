@@ -51,6 +51,12 @@
   - run test using **specified browser**: 
   > mvn -DWeb.browser="safari" verify (default is Chrome) 
 - - **Run by Test runner in IDE**
+  
+## III. Report Example
+
+![img.png](img.png)
+
+![img_1.png](img_1.png)
 
 
   

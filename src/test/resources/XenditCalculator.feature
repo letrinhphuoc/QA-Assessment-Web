@@ -1,6 +1,6 @@
 Feature: Test online calculator scenarios
 
-  @Xendit-QA-Assessment
+  @Xendit-QA-Assessment @Web
   Scenario Outline: Test subtraction, division and CE functionalities
     Given Open chrome browser and start application
     When I enter following values and press CE button
